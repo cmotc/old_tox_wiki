@@ -1,64 +1,42 @@
  
-            Chapter 1: Indentation
+###Chapter 1: Indentation
  
-Tabs are 8 characters, and thus indentations are also 8 characters.
-There are heretic movements that try to make indentations 4 (or even 2!)
-characters deep, and that is akin to trying to define the value of PI to
-be 3.
- 
-Rationale: The whole idea behind indentation is to clearly define where
-a block of control starts and ends.  Especially when you've been looking
-at your screen for 20 straight hours, you'll find it a lot easier to see
-how the indentation works if you have large indentations.
- 
-Now, some people will claim that having 8-character indentations makes
-the code move too far to the right, and makes it hard to read on a
-80-character terminal screen.  The answer to that is that if you need
-more than 3 levels of indentation, you're screwed anyway, and should fix
-your program.
- 
-In short, 8-char indents make things easier to read, and have the added
-benefit of warning you when you're nesting your functions too deep.
-Heed that warning.
+Indentation is _4 spaces_.
  
 The preferred way to ease multiple indentation levels in a switch statement is
 to align the "switch" and its subordinate "case" labels in the same column
 instead of "double-indenting" the "case" labels.  E.g.:
  
-        switch (suffix) {
-        case 'G':
-        case 'g':
-                mem <<= 30;
-                break;
-        case 'M':
-        case 'm':
-                mem <<= 20;
-                break;
-        case 'K':
-        case 'k':
-                mem <<= 10;
-                /* fall through */
-        default:
-                break;
-        }
+    switch (suffix) {
+    case 'G':
+    case 'g':
+        mem <<= 30;
+        break;
+    case 'M':
+    case 'm':
+        mem <<= 20;
+        break;
+    case 'K':
+    case 'k':
+        mem <<= 10;
+        /* fall through */
+    default:
+        break;
+    }
  
  
 Don't put multiple statements on a single line unless you have
 something to hide:
  
-        if (condition) do_this;
-          do_something_everytime;
+    if (condition) do_this;
+      do_something_everytime;
  
-Don't put multiple assignments on a single line either.  Kernel coding style
-is super simple.  Avoid tricky expressions.
+Don't put multiple assignments on a single line either. Avoid tricky expressions.
+
+Get a decent editor and _don't leave whitespace at the end of lines_.
  
-Outside of comments, documentation and except in Kconfig, spaces are never
-used for indentation, and the above example is deliberately broken.
- 
-Get a decent editor and don't leave whitespace at the end of lines.
- 
- 
-                Chapter 2: Breaking long lines and strings
+
+###Chapter 2: Breaking long lines and strings
  
 Coding style is all about readability and maintainability using commonly
 available tools.
@@ -74,7 +52,7 @@ with a long argument list. However, never break user-visible strings such as
 printk messages, because that breaks the ability to grep for them.
  
  
-                Chapter 3: Placing Braces and Spaces
+###Chapter 3: Placing Braces and Spaces
  
 The other issue that always comes up in C styling is the placement of
 braces.  Unlike the indent size, there are few technical reasons to
@@ -82,31 +60,31 @@ choose one placement strategy over the other, but the preferred way, as
 shown to us by the prophets Kernighan and Ritchie, is to put the opening
 brace last on the line, and put the closing brace first, thusly:
  
-        if (x is true) {
-                we do y
-        }
+    if (x is true) {
+        we do y
+    }
  
 This applies to all non-function statement blocks (if, switch, for,
 while, do).  E.g.:
  
-        switch (action) {
-        case KOBJ_ADD:
-                return "add";
-        case KOBJ_REMOVE:
-                return "remove";
-        case KOBJ_CHANGE:
-                return "change";
-        default:
-                return NULL;
-        }
+    switch (action) {
+    case KOBJ_ADD:
+        return "add";
+    case KOBJ_REMOVE:
+        return "remove";
+    case KOBJ_CHANGE:
+        return "change";
+    default:
+        return NULL;
+    }
  
 However, there is one special case, namely functions: they have the
 opening brace at the beginning of the next line, thus:
  
-        int function(int x)
-        {
-                body of function
-        }
+    int function(int x)
+    {
+        body of function
+    }
  
 Heretic people all over the world have claimed that this inconsistency
 is ...  well ...  inconsistent, but all right-thinking people know that
@@ -115,22 +93,22 @@ special anyway (you can't nest them in C).
  
 Note that the closing brace is empty on a line of its own, _except_ in
 the cases where it is followed by a continuation of the same statement,
-ie a "while" in a do-statement or an "else" in an if-statement, like
+i.e. a "while" in a do-statement or an "else" in an if-statement, like
 this:
  
-        do {
-                body of do-loop
-        } while (condition);
+    do {
+        body of do-loop
+    } while (condition);
  
 and
  
-        if (x == y) {
-                ..
-        } else if (x > y) {
-                ...
-        } else {
-                ....
-        }
+    if (x == y) {
+        ..
+    } else if (x > y) {
+        ...
+    } else {
+        ....
+    }
  
 Rationale: K&R.
  
@@ -142,66 +120,62 @@ comments on.
  
 Do not unnecessarily use braces where a single statement will do.
  
-if (condition)
+    if (condition)
         action();
  
 and
  
-if (condition)
+    if (condition)
         do_this();
-else
+    else
         do_that();
  
 This does not apply if only one branch of a conditional statement is a single
 statement; in the latter case use braces in both branches:
  
-if (condition) {
+    if (condition) {
         do_this();
         do_that();
-} else {
+    } else {
         otherwise();
-}
+    }
  
-                3.1:  Spaces
+3.1:  Spaces
  
-Linux kernel style for use of spaces depends (mostly) on
-function-versus-keyword usage.  Use a space after (most) keywords.  The
-notable exceptions are sizeof, typeof, alignof, and __attribute__, which look
-somewhat like functions (and are usually used with parentheses in Linux,
-although they are not required in the language, as in: "sizeof info" after
-"struct fileinfo info;" is declared).
+Use of spaces depends (mostly) on function-versus-keyword usage. Use a space after (most) keywords.  The
+notable exceptions are sizeof, typeof, alignof, and __attribute__, which look somewhat like functions (and are usually used with parentheses, although they are not required in the language, as in: "sizeof info" after "struct fileinfo info;" is declared).
  
 So use a space after these keywords:
-        if, switch, case, for, do, while
+    if, switch, case, for, do, while
 but not with sizeof, typeof, alignof, or __attribute__.  E.g.,
-        s = sizeof(struct file);
+    s = sizeof(struct file);
  
 Do not add spaces around (inside) parenthesized expressions.  This example is
 *bad*:
  
-        s = sizeof( struct file );
+    s = sizeof( struct file );
  
 When declaring pointer data or a function that returns a pointer type, the
 preferred use of '*' is adjacent to the data name or function name and not
 adjacent to the type name.  Examples:
  
-        char *linux_banner;
-        unsigned long long memparse(char *ptr, char **retptr);
-        char *match_strdup(substring_t *s);
+    char *linux_banner;
+    unsigned long long memparse(char *ptr, char **retptr);
+    char *match_strdup(substring_t *s);
  
 Use one space around (on each side of) most binary and ternary operators,
 such as any of these:
  
-        =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
+    =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
  
 but no space after unary operators:
-        &  *  +  -  ~  !  sizeof  typeof  alignof  __attribute__  defined
+    &  *  +  -  ~  !  sizeof  typeof  alignof  __attribute__  defined
  
 no space before the postfix increment & decrement unary operators:
-        ++  --
+    ++  --
  
 no space after the prefix increment & decrement unary operators:
-        ++  --
+    ++  --
  
 and no space around the '.' and "->" structure member operators.
  
@@ -218,7 +192,7 @@ of patches, this may make later patches in the series fail by changing their
 context lines.
  
  
-                Chapter 4: Naming
+###Chapter 4: Naming
  
 C is a Spartan language, and so should your naming be.  Unlike Modula-2
 and Pascal programmers, C programmers do not use cute names like
@@ -248,22 +222,22 @@ variable that is used to hold a temporary value.
  
 If you are afraid to mix up your local variable names, you have another
 problem, which is called the function-growth-hormone-imbalance syndrome.
-See chapter 6 (Functions).
+See Chapter 6 (Functions).
  
  
-                Chapter 5: Typedefs
+###Chapter 5: Typedefs
  
 Please don't use things like "vps_t".
  
 It's a _mistake_ to use typedef for structures and pointers. When you see a
  
-        vps_t a;
+    vps_t a;
  
 in the source, what does it mean?
  
 In contrast, if it says
  
-        struct virtual_container *a;
+    struct virtual_container *a;
  
 you can actually tell what "a" is.
  
@@ -289,7 +263,7 @@ useful only for:
      NOTE! Again - there needs to be a _reason_ for this. If something is
      "unsigned long", then there's no reason to do
  
-        typedef unsigned long myflags_t;
+    typedef unsigned long myflags_t;
  
      but if there is a clear reason for why it under certain circumstances
      might be an "unsigned int" and under other configurations might be
@@ -315,19 +289,19 @@ useful only for:
  
  (e) Types safe for use in userspace.
  
-     In certain structures which are visible to userspace, we cannot
-     require C99 types and cannot use the 'u32' form above. Thus, we
-     use __u32 and similar types in all structures which are shared
-     with userspace.
+    In certain structures which are visible to userspace, we canno     t
+    require C99 types and cannot use the 'u32' form above. Thus,      we
+    use __u32 and similar types in all structures which are s     hared
+    with userspace.
+  
+    Maybe there are other cases too, but the rule should basically be to NEVER
+    EVER use a typedef unless you can clearly match one of those rules.
+  
+    In general, a pointer, or a struct that has elements that can reasonably
+    be directly accessed should _never_ be a typedef.
  
-Maybe there are other cases too, but the rule should basically be to NEVER
-EVER use a typedef unless you can clearly match one of those rules.
  
-In general, a pointer, or a struct that has elements that can reasonably
-be directly accessed should _never_ be a typedef.
- 
- 
-                Chapter 6: Functions
+###Chapter 6: Functions
  
 Functions should be short and sweet, and do just one thing.  They should
 fit on one or two screenfuls of text (the ISO/ANSI screen size is 80x24,
@@ -358,56 +332,18 @@ In source files, separate functions with one blank line.  If the function is
 exported, the EXPORT* macro for it should follow immediately after the closing
 function brace line.  E.g.:
  
-int system_is_up(void)
-{
+    int system_is_up(void)
+    {
         return system_state == SYSTEM_RUNNING;
-}
-EXPORT_SYMBOL(system_is_up);
+    }
+    EXPORT_SYMBOL(system_is_up);
  
 In function prototypes, include parameter names with their data types.
-Although this is not required by the C language, it is preferred in Linux
-because it is a simple way to add valuable information for the reader.
+Although this is not required by the C language, it is preferred because 
+it is a simple way to add valuable information for the reader.
  
- 
-                Chapter 7: Centralized exiting of functions
- 
-Albeit deprecated by some people, the equivalent of the goto statement is
-used frequently by compilers in form of the unconditional jump instruction.
- 
-The goto statement comes in handy when a function exits from multiple
-locations and some common work such as cleanup has to be done.  If there is no
-cleanup needed then just return directly.
- 
-The rationale is:
- 
-- unconditional statements are easier to understand and follow
-- nesting is reduced
-- errors by not updating individual exit points when making
-    modifications are prevented
-- saves the compiler work to optimize redundant code away ;)
- 
-int fun(int a)
-{
-        int result = 0;
-        char *buffer = kmalloc(SIZE);
- 
-        if (buffer == NULL)
-                return -ENOMEM;
- 
-        if (condition1) {
-                while (loop1) {
-                        ...
-                }
-                result = 1;
-                goto out;
-        }
-        ...
-out:
-        kfree(buffer);
-        return result;
-}
- 
-                Chapter 8: Commenting
+  
+###Chapter 7: Commenting
  
 Comments are good, but there is also a danger of over-commenting.  NEVER
 try to explain HOW your code works in a comment: it's much better to
@@ -417,51 +353,36 @@ time to explain badly written code.
 Generally, you want your comments to tell WHAT your code does, not HOW.
 Also, try to avoid putting comments inside a function body: if the
 function is so complex that you need to separately comment parts of it,
-you should probably go back to chapter 6 for a while.  You can make
+you should probably go back to ###Chapter 6 for a while.  You can make
 small comments to note or warn about something particularly clever (or
 ugly), but try to avoid excess.  Instead, put the comments at the head
 of the function, telling people what it does, and possibly WHY it does
 it.
  
-When commenting the kernel API functions, please use the kernel-doc format.
-See the files Documentation/kernel-doc-nano-HOWTO.txt and scripts/kernel-doc
-for details.
- 
-Linux style for comments is the C89 "/* ... */" style.
+The style for comments is the C89 "/* ... */" style.
 Don't use C99-style "// ..." comments.
  
 The preferred style for long (multi-line) comments is:
  
-        /*
-         * This is the preferred style for multi-line
-         * comments in the Linux kernel source code.
-         * Please use it consistently.
-         *
-         * Description:  A column of asterisks on the left side,
-         * with beginning and ending almost-blank lines.
-         */
- 
-For files in net/ and drivers/net/ the preferred style for long (multi-line)
-comments is a little different.
- 
-        /* The preferred comment style for files in net/ and drivers/net
-         * looks like this.
-         *
-         * It is nearly the same as the generally preferred comment style,
-         * but there is no initial almost-blank line.
-         */
+    /*
+     * This is the preferred style for multi-line
+     * comments in the Project Tox source code.
+     * Please use it consistently.
+     *
+     * Description:  A column of asterisks on the left side,
+     * with beginning and ending almost-blank lines.
+     */
  
 It's also important to comment data, whether they are basic types or derived
 types.  To this end, use just one data declaration per line (no commas for
 multiple data declarations).  This leaves you room for a small comment on each
 item, explaining its use.
  
-                Chapter 9: Data structures
+###Chapter 8: Data structures
  
 Data structures that have visibility outside the single-threaded
 environment they are created and destroyed in should always have
-reference counts.  In the kernel, garbage collection doesn't exist (and
-outside the kernel garbage collection is slow and inefficient), which
+reference counts.  Garbage collection is slow and inefficient, which
 means that you absolutely _have_ to reference count all your uses.
  
 Reference counting means that you can avoid locking, and allows multiple
@@ -487,11 +408,11 @@ Remember: if another thread can find your data structure, and you don't
 have a reference count on it, you almost certainly have a bug.
  
  
-                Chapter 10: Macros, Enums and RTL
+###Chapter 9: Macros, Enums and RTL
  
 Names of macros defining constants and labels in enums are capitalized.
  
-#define CONSTANT 0x12345
+`#define CONSTANT 0x12345`
  
 Enums are preferred when defining several related constants.
  
@@ -502,28 +423,30 @@ Generally, inline functions are preferable to macros resembling functions.
  
 Macros with multiple statements should be enclosed in a do - while block:
  
-#define macrofun(a, b, c)                       \
-        do {                                    \
-                if (a == 5)                     \
-                        do_this(b, c);          \
-        } while (0)
+`#define macrofun(a, b, c)`
+              
+    do {                    
+        if (a == 5)             
+            do_this(b, c);      
+    } while (0)``
  
 Things to avoid when using macros:
  
 1) macros that affect control flow:
  
-#define FOO(x)                                  \
-        do {                                    \
-                if (blah(x) < 0)                \
-                        return -EBUGGERED;      \
-        } while(0)
+`#define FOO(x)`                
+  
+    do {                    
+        if (blah(x) < 0)        
+            return -EBUGGERED;      
+    } while(0)
  
 is a _very_ bad idea.  It looks like a function call but exits the "calling"
 function; don't break the internal parsers of those who will read the code.
  
 2) macros that depend on having a local variable with a magic name:
  
-#define FOO(val) bar(index, val)
+`#define FOO(val) bar(index, val)`
  
 might look like a good thing, but it's confusing as hell when one reads the
 code and it's prone to breakage from seemingly innocent changes.
@@ -535,22 +458,19 @@ bite you if somebody e.g. turns FOO into an inline function.
 must enclose the expression in parentheses. Beware of similar issues with
 macros using parameters.
  
-#define CONSTANT 0x4000
-#define CONSTEXP (CONSTANT | 3)
- 
-The cpp manual deals with macros exhaustively. The gcc internals manual also
-covers RTL which is used frequently with assembly language in the kernel.
- 
-                Chapter 11: Allocating memory
+`#define CONSTANT 0x4000`
+
+`#define CONSTEXP (CONSTANT | 3)`
+  
+###Chapter 10: Allocating memory
  
 The kernel provides the following general purpose memory allocators:
 kmalloc(), kzalloc(), kmalloc_array(), kcalloc(), vmalloc(), and
-vzalloc().  Please refer to the API documentation for further information
-about them.
+vzalloc().
  
 The preferred form for passing a size of a struct is the following:
  
-        p = kmalloc(sizeof(*p), ...);
+    p = kmalloc(sizeof(*p), ...);
  
 The alternative form where struct name is spelled out hurts readability and
 introduces an opportunity for a bug when the pointer variable type is changed
@@ -562,21 +482,21 @@ language.
  
 The preferred form for allocating an array is the following:
  
-        p = kmalloc_array(n, sizeof(...), ...);
+    p = kmalloc_array(n, sizeof(...), ...);
  
 The preferred form for allocating a zeroed array is the following:
  
-        p = kcalloc(n, sizeof(...), ...);
+    p = kcalloc(n, sizeof(...), ...);
  
 Both forms check for overflow on the allocation size n * sizeof(...),
 and return NULL if that occurred.
  
  
-                Chapter 12: The inline disease
+###Chapter 11: The inline disease
  
 There appears to be a common misperception that gcc has a magic "make me
 faster" speedup option called "inline". While the use of inlines can be
-appropriate (for example as a means of replacing macros, see Chapter 12), it
+appropriate (for example as a means of replacing macros, see ###Chapter 12), it
 very often is not. Abundant use of the inline keyword leads to a much bigger
 kernel, which in turn slows the system as a whole down, due to a bigger
 icache footprint for the CPU and simply because there is less memory
@@ -599,7 +519,7 @@ appears outweighs the potential value of the hint that tells gcc to do
 something it would have done anyway.
  
  
-                Chapter 13: Function return values and names
+###Chapter 12: Function return values and names
  
 Functions can return values of many different kinds, and one of the
 most common is a value indicating whether the function succeeded or
@@ -613,9 +533,9 @@ between integers and booleans then the compiler would find these mistakes
 for us... but it doesn't.  To help prevent such bugs, always follow this
 convention:
  
-        If the name of a function is an action or an imperative command,
-        the function should return an error-code integer.  If the name
-        is a predicate, the function should return a "succeeded" boolean.
+If the name of a function is an action or an imperative command,
+the function should return an error-code integer.  If the name
+is a predicate, the function should return a "succeeded" boolean.
  
 For example, "add work" is a command, and the add_work() function returns 0
 for success or -EBUSY for failure.  In the same way, "PCI device present" is
@@ -630,4 +550,4 @@ Functions whose return value is the actual result of a computation, rather
 than an indication of whether the computation succeeded, are not subject to
 this rule.  Generally they indicate failure by returning some out-of-range
 result.  Typical examples would be functions that return pointers; they use
-NULL or the ERR_PTR mechanism to report failure.
+NULL or the ERR_PTR mechanism to report failure.t failure.
