@@ -8,6 +8,8 @@ Tox currently builds on Windows, Mac and Linux successfully.
 
 [[DHT hardening]]
 
+[[Coding Style]]
+
 [[FAQ]]
 
 [[Ideas]]
@@ -21,4 +23,3 @@ Tox currently builds on Windows, Mac and Linux successfully.
 [[Routing Protocol]]
 
 [[TODO]]
-
