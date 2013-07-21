@@ -1,4 +1,4 @@
-Nem here, I run a Minecraft server. And part of running this server is constantly asking the normalfags of the server what they think of Tox. Since they're the people we're trying to target, I'd figure their opinion is most important. Without further a-do, I present to thee, normalfag opinions:
+Nem here, I run a Minecraft server. And part of running this server is constantly asking the users of the server what they think of Tox. Since they're the people we're trying to target, I'd figure their opinion is most important. Without further a-do, I present to thee, user opinions:
 **Keep in mind this is merely feedback/critism. It's not like they're denying to try Tox once it comes out.**
 
 
