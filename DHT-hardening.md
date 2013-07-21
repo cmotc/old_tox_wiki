@@ -33,6 +33,7 @@ power devices)
 
 Make each node test other nodes to see if they respond correctly before sending 
 them as part of their send nodes response.
+
 ...
 
 
@@ -49,7 +50,8 @@ which node to store data in, similar to Kad?
 actively deny storing that data.
 <slvr> This can be reduced by storing data at multiple places in the DHT 
 (equidistant points in DHT address space)
-<slvr> Since DHT addresses are public keys, it is computationally infeasible for 
+<slvr> Since DHT addresses are public keys, it is computationally infeasible 
+for 
 an attacker to actively deny all storage locations.
 <slvr> Recommended reading: S/Kademlia: A Practicable Approach Towards Secure 
 Key-Based Routing -- http://doc.tm.uka.de/2007/SKademlia_2007.pdf
@@ -66,3 +68,9 @@ Measurement_of_Bittorrent_DHT_performance_and_deployed_clients.pdf
 <biribiri> Type: application/pdf; charset=iso-8859-15; Size: 1.271MiB; Updated: 
 1669d 20h 25m 15s ago (Tue, 16 Dec 2008 12:44:08 GMT);
 ```
+
+Other:
+------------------
+Randomize the last few bytes of id's when doing get node requests, this can 
+make it harder for someone to give fake information about the node we are 
+looking for.
