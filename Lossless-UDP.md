@@ -9,7 +9,7 @@ Problems with conventional UDP:
 Draft of Proposed protocol
 ==========================
 
-Connexion example
+Connection example
 -----------------
 
 Alice wants to connect to Bob (Connection handshake):
@@ -17,34 +17,34 @@ Alice generates a random 4 byte number.
 Alice puts it in the handshake packet (handshake_id1).
 Alice starts sending handshake packets to Bob (send 10 packets over 5 seconds if no response connection fails.)
 Bob receives the packet.
-Bob copies the handshake packet he got from alice but concatenates a random 4 byte number to it (handshake_id2)
+Bob copies the handshake packet he got from Alice but concatenates a random 4 byte number to it (handshake_id2)
 Alice receives the packet, checks if handshake_id1 matches the one she sent.
 If it does she starts sending SYNC packets with sent_packetnum = handshake_id2 and recv_packetnum = handshake_id1.
 Bob receives the packet, 
-if (handshake_id2) matches Bob adds Alice to his connections list and starts sending SYNC packets to alice.
+if (handshake_id2) matches Bob adds Alice to his connections list and starts sending SYNC packets to Alice.
 Alice receives the SYNC packets and starts sending them too.
 Connection is now established.
 
 Alice wants to send packets to Bob:
-Alice sends packets to bob.
-If bob receives the packets, his next SYNC packets reflect it.
-Alice receives the SYNC packets which confirms that bob received them
+Alice sends packets to Bob.
+If Bob receives the packets, his next SYNC packets reflect it.
+Alice receives the SYNC packets which confirms that Bob received them
 Alice clears the packets from her buffer.
 
-If bob does not receive any packets, but receives a SYNC packet with a larger sent_packetnum than his recv_packetnum:
-bobs SYNC packets become request packets.
+If Bob does not receive any packets, but receives a SYNC packet with a larger sent_packetnum than his recv_packetnum:
+Bob's SYNC packets become request packets.
 The packet id of the missing packet(s) are added to the end of the SYNC packet.
 Alice resends the packets whose numbers appear at the end of the request packet.
 
-If bob receives some packets but some are missing
-bobs SYNC packets become request packets.
+If Bob receives some packets but some are missing
+Bob's SYNC packets become request packets.
 The packet id of the missing packet(s) are added to the end of the SYNC packet.
 Alice resends the packets whose numbers appear at the end of the request packet.
 
-Alice and bob disconnect suddenly:
-Alice stops receiving SYNC packets from bob.
+Alice and Bob disconnect suddenly:
+Alice stops receiving SYNC packets from Bob.
 Bob stops receiving SYNC packets from Alice.
-Connexion times out if no data is received for 5 seconds.               
+Connection times out if no data is received for 5 seconds.               
 
 Packet handling
 ---------------
