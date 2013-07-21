@@ -16,7 +16,7 @@ Tox currently builds on Windows, Mac and Linux successfully.
 
 [[Messaging Protocol]]
 
-[[Normalfag Opinions]]
+[[Popular Opinions]]
 
 [[Routing Protocol]]
 
