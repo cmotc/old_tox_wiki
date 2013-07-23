@@ -11,11 +11,13 @@ Things to do now:
 [ ] Get a basic IM client working using the now completed DHT implementation to find the ips of your friends.
 
 [√] Find some good encryption libraries
+
     we will use: http://nacl.cr.yp.to/
 
 [ ] Add NaCl to our build system.
 
 [√] Make NaCl work on windows
+
     https://github.com/jedisct1/libsodium
     
 
@@ -34,7 +36,8 @@ Things to do later:
 Less important.
 
 [ ] Symmetric NATs
-    No UDP hole punching on them so we need to do something else 
+    No UDP hole punching on them so we need to do something else
+
     (only if both the clients which try to connect to themselves are behind one)
 
 
@@ -43,9 +46,12 @@ Less important.
 
 
 [ ] Offline messaging protocol (text only)
+
     Use your friends (or maybe the people closest (mathematically by comparing client_id's) to you or the friend you want to send the message to)
+
     The message will not be very big. Lets say we limit the maximum number of bytes for one to 1024, it means if every client stores 1024 offline messages it only takes 1 MB of RAM
 
 [ ] IPv6
+
     Currently the core only supports IPv4
     
