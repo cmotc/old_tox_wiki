@@ -9,6 +9,8 @@ generate the users public-private key pair. (32 bytes each)
 
 The generated public key is set as the client_id of the peer.
 
+Note that only the crypto connection runs on top of Lossless UDP. The friend requests do not.
+
 Adding a friend
 ---------------
 
@@ -18,9 +20,9 @@ case 1: Alice adds Bobs public key and bob waits for Alice to attempt to connect
 case 2: Bob and Alice add their respective public keys to their friends list at the same time.
     
 case 1:
-Alice connects to Bob and sends a data packet (friends request) like so:
+Alice sends the following packet to bob (friends request) like so:
 ```
-[char with a value of 01][Alice's Public key (client_id) (32 bytes)][Random nonce (24 bytes)][Encrypted message]
+[char with a value of 32][Bob's (The reciever's) Public key (client_id) (32 bytes))][Alice's (The sender's) Public key (client_id) (32 bytes)][Random nonce (24 bytes)][Encrypted message]
 ```
 
 Where the encrypted message is encrypted with crypto_box() (using Bobs public key, Alice's private key and the nonce (randomly generated 24 bytes)) and is a message from Alice in which she tells Bob who she is.
