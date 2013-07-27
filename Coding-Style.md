@@ -550,4 +550,4 @@ Functions whose return value is the actual result of a computation, rather
 than an indication of whether the computation succeeded, are not subject to
 this rule.  Generally they indicate failure by returning some out-of-range
 result.  Typical examples would be functions that return pointers; they use
-NULL or the ERR_PTR mechanism to report failure.t failure.
+NULL or the ERR_PTR mechanism to report failure.
