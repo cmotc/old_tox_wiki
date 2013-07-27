@@ -143,11 +143,11 @@ statement; in the latter case use braces in both branches:
 3.1:  Spaces
  
 Use of spaces depends (mostly) on function-versus-keyword usage. Use a space after (most) keywords.  The
-notable exceptions are sizeof, typeof, alignof, and __attribute__, which look somewhat like functions (and are usually used with parentheses, although they are not required in the language, as in: "sizeof info" after "struct fileinfo info;" is declared).
+notable exceptions are sizeof, typeof, alignof, and \_\_attribute\_\_, which look somewhat like functions (and are usually used with parentheses, although they are not required in the language, as in: "sizeof info" after "struct fileinfo info;" is declared).
  
 So use a space after these keywords:
     if, switch, case, for, do, while
-but not with sizeof, typeof, alignof, or __attribute__.  E.g.,
+but not with sizeof, typeof, alignof, or \_\_attribute\_\_.  E.g.,
     s = sizeof(struct file);
  
 Do not add spaces around (inside) parenthesized expressions.  This example is
@@ -169,7 +169,7 @@ such as any of these:
     =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
  
 but no space after unary operators:
-    &  *  +  -  ~  !  sizeof  typeof  alignof  __attribute__  defined
+    &  *  +  -  ~  !  sizeof  typeof  alignof  \_\_attribute\_\_  defined
  
 no space before the postfix increment & decrement unary operators:
     ++  --
