@@ -18,8 +18,10 @@ Tox currently builds on Windows, Mac and Linux successfully.
 
 [[Messaging Protocol]]
 
-[[Popular Opinions]]
+[[LAN Discovery]]
 
-[[Routing Protocol]]
+[[Symmetric NAT Transversal]]
+
+[[Popular Opinions]]
 
 [[TODO]]
