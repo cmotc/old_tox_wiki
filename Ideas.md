@@ -28,3 +28,6 @@ File send
 - POSSIBLY interfacing with regular phones. probably not possible, but plebs might complain (THIS IS EXPENSIVE (hence 'probably not possible')) <3
 
 IMPORTANT: Release two UIs, an "advanced" one (so powerusers don't feel like the UI is in their way) and a more "intuitive" one (so average users get started quickly)
+
+de geso
+- > I would suggest a "Advanced options" where the advanced users can rejoice with all kinds of options (and it doesn't frighten the normalfags, since it's not shown by default). Also, 2 UIs would be chaos to maintain. 
