@@ -27,7 +27,4 @@ File send
     just store it along with keys in aforementioned server; cost of storage could rise... potential problem
 - POSSIBLY interfacing with regular phones. probably not possible, but plebs might complain (THIS IS EXPENSIVE (hence 'probably not possible')) <3
 
-IMPORTANT: release two major sanctioned UIs, one for autists, one with inbuilt support for the previous list so that plebs can't get confused with setting it up and autists don't complain about it getting in their way. de geso
-    > I would suggest a "Advanced options" where the autists can rejoice with all kinds of options (and it doesn't frighten the normalfags, since it's not shown by default). Also, 2 UIs would be chaos to maintain.
-
-
+IMPORTANT: Release two UIs, an "advanced" one (so powerusers don't feel like the UI is in their way) and a more "intuitive" one (so average users get started quickly)
