@@ -9,14 +9,11 @@ Contents
 (3). Tox
 (3.1) Which encryption algorithms does Tox employ?
 (3.2) Does Tox have plugin support?
-(3.3) Can I use Tox over Tor?
-=============================
-No, Tox uses UDP and the Tor network is TCP only.
-
 (3.3) I want to contribute to the Tox project.
 (3.3.1) I want to be a developer.
 (3.3.2) I want to contribute in UI design/sound.
 (3.3.3) Are there any other ways I can contribute?
+(3.4) Can I use Tox over Tor?
 (4). Source
 (4.1) Where do I get the Tox source code?
 (4.2) How do I compile Tox?
@@ -59,6 +56,10 @@ Join the IRC.
 --------------------------------------------------
 Testing the application, reporting bugs and requesting features. Don't be 
 scared to criticize something if you think it is done wrong.
+
+(3.4) Can I use Tox over Tor?
+=============================
+No, Tox uses UDP and the Tor network is TCP only.
 
 (4). Source
 ===========
