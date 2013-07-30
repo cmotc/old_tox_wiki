@@ -25,6 +25,7 @@ File send
     possible implementation: store pubkey-hash/info correspondences in a public directory, integrate access into client
 - portable contact list/profile/other account data
     just store it along with keys in aforementioned server; cost of storage could rise... potential problem
+-centralized servers are points of failure.  But we could allow people to merge identities, which would allow transmission.  Make a temp id to transmit to, transmit your private and public key, your contacts, etc.
 - POSSIBLY interfacing with regular phones. probably not possible, but plebs might complain (THIS IS EXPENSIVE (hence 'probably not possible')) <3
 
 IMPORTANT: Release two UIs, an "advanced" one (so powerusers don't feel like the UI is in their way) and a more "intuitive" one (so average users get started quickly)
