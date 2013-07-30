@@ -14,6 +14,9 @@ File send
 
 - I see a file being sent as ultimately the same as an audio stream or a video stream being sent, they could use the same protocol parts. The client would handle what to do with the data whether it is a stream of media data or a stream of b64'd file. Both would require explicit verification from the other participant. This would also allow sharing of streamed files, eg incomplete downloads.
 
+Multiple "Users"
+--------
+- The ability to generate several simultanious keys and using them to seperate your friendslist into groups. I want the ability to have one key for my trusted friends, one key for my somewhat not so trusted internet "friends" and lastly throwaway keys for people I just met. I want the ability to set status messages (online, busy, away, offline) for every key seperatly. Essentially I want the similarity to have several skype accounts, just in one single instance of the program and without having to log out and then back in.
 
 ...
 
