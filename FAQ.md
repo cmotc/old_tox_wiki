@@ -71,6 +71,9 @@ Some front ends:
 
 (4.2). How do I compile Tox?
 ---------------------------
+
+Updated instructions found in [INSTALL.md](/irungentoo/ProjectTox-Core/blob/master/INSTALL.md) in the root of this repository.
+
 You need to build and install `libsodium`.
 
 On Mac OS X use [brew](http://brew.sh/) to install the dependencies
