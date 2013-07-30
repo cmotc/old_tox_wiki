@@ -71,12 +71,19 @@ Some front ends:
 
 (4.2). How do I compile Tox?
 ---------------------------
-You need to build and install libsodium.
-Then just cd in the repo and:
-mkdir build
-cd build
-cmake ..
-make
+You need to build and install `libsodium`.
+
+On Mac OS X use [brew](http://brew.sh/) to install the dependencies
+
+    brew update
+    brew install libconfig libsodium
+
+Then just cd in the repo and run
+
+    mkdir build
+    cd build
+    cmake ..
+    make
 
 (5). Community
 ==============
