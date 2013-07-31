@@ -34,7 +34,8 @@ Contents
 
 (5.1) Where can I find the latest Tox thread?
 (5.2) Are there any other Tox threads/forums?
-===============================================================================
+
+***
  
 (1). What is Tox?
 =================
