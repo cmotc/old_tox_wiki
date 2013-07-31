@@ -5,20 +5,33 @@ Contents
 ========
  
 (1). What is Tox?
+
 (2). Where can I get Tox?
+
 (3). Tox
+
 (3.1) Which encryption algorithms does Tox employ?
+
 (3.2) Does Tox have plugin support?
+
 (3.3) I want to contribute to the Tox project.
-(3.3.1) I want to be a developer.
-(3.3.2) I want to contribute in UI design/sound.
-(3.3.3) Are there any other ways I can contribute?
+
+   (3.3.1) I want to be a developer.
+
+   (3.3.2) I want to contribute in UI design/sound.
+
+   (3.3.3) Are there any other ways I can contribute?
+
 (3.4) Can I use Tox over Tor?
+
 (4). Source
+
 (4.1) Where do I get the Tox source code?
+
 (4.2) How do I compile Tox?
  
 (5). Community
+
 (5.1) Where can I find the latest Tox thread?
 (5.2) Are there any other Tox threads/forums?
 ===============================================================================
