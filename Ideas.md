@@ -1,21 +1,31 @@
 A couple of ideas posted in the threads
-=======================================
 
-Presence (online/offline)
---------------------------
+***
+
+
+### Presence (online/offline)
+
+***
+
 - A user's id being present with a valid signature in the DHT implies they have been online recently. A ping to the user would confirm this, as well as notifying them that you are online. If both friends in a pair actively search for the other then disruption due to lag in inserting records will be minimised.
 
-Username (nick) changes
------------------------
+### Username (nick) changes
+
+***
+
 - When a user wants to change their nick they are free to do so, as the nick is not cryptographically significant. The nick change could be shared in-band with the chat (ie, each message in the format "username - message") or out of band, perhaps in the DHT values or in the ping messages.
 
-File send
----------
+### File send
+
+***
+
 
 - I see a file being sent as ultimately the same as an audio stream or a video stream being sent, they could use the same protocol parts. The client would handle what to do with the data whether it is a stream of media data or a stream of b64'd file. Both would require explicit verification from the other participant. This would also allow sharing of streamed files, eg incomplete downloads.
 
-Multiple "Users"
---------
+### Multiple "Users"
+
+***
+
 - The ability to generate several simultanious keys and using them to seperate your friendslist into groups. I want the ability to have one key for my trusted friends, one key for my somewhat not so trusted internet "friends" and lastly throwaway keys for people I just met. I want the ability to set status messages (online, busy, away, offline) for every key seperatly. Essentially I want the similarity to have several skype accounts, just in one single instance of the program and without having to log out and then back in.
 
 ...
